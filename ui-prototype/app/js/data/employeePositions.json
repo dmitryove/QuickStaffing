@@ -1,0 +1,31 @@
+{
+	"employeePositions": [{
+		"name": "Key Developer",
+		"primarySkill": "Java",
+		"customer": "Google",
+		"project": "GOOG-APP",
+		"location": "Los Angeles",
+		"startDate": "09/13/2014",
+		"employeeStatus": "Open",
+		"status": "Booked"
+	},{
+		"name": "Developer",
+		"primarySkill": "Hybrids",
+		"customer": "Chevron",
+		"project": "EPAM-ARCH",
+		"location": "Seattle",
+		"startDate": "09/13/2014",
+		"employeeStatus": "Proposed",
+		"status": "Open"
+	}],
+	"additionalPositions": [{
+		"name": "Team Leader",
+		"primarySkill": "Java",
+		"customer": "UBS",
+		"project": "UBS-1",
+		"location": "NYC",
+		"startDate": "09/13/2014",
+		"employeeStatus": "Excluded",
+		"status": "Open"
+	}]
+}

@@ -1,0 +1,144 @@
+<!-- ========================================================= -->
+<!-- begin: CONTENT -->
+<!-- ========================================================= -->
+<div ng-controller="employeeInfoController">
+	<h2>{{employeeInfo.firstName}} {{employeeInfo.lastName}}</h2>
+	<hr/>
+	<div>
+		<label>Other advanced skills:</label>
+		<input type="text" value="{{otherSkills}}" ng-keyup="onSkillsFieldKeyUp ($event)" id="inptOtherSkills"/>
+	</div>
+	<div>
+		<label>No Relocation</label>
+		<input type="checkbox" ng-click="onNoRelocationClick ($event)" id="chckbxNoRelocation">
+	</div>
+	<button ng-click="onSearchButtonClick ($event)">Get Positions</button>
+	</hr>
+	<div>
+		<label>Location:</label>
+		<span>{{employeeInfo.location}}</span>
+	</div>
+	<div>
+		<label>Title:</label>
+		<span>{{employeeInfo.title}}</span>
+	</div>
+	<div>
+		<label>Job Function:</label>
+		<span>{{employeeInfo.jobFunction}}</span>
+	</div>
+	<div>
+		<label>Primary Skill:</label>
+		<span>{{employeeInfo.primarySkill}}</span>
+	</div>
+	<div>
+		<label>Resource Manager:</label>
+		<span>{{employeeInfo.resourceManager}}</span>
+	</div>
+	<div>
+		<label>Title:</label>
+		<span>{{employeeInfo.title}}</span>
+	</div>
+	<hr/>
+	<div>
+		<label>Current Projects:</label>
+		<hr/>
+		<div ng-repeat="project in employeeInfo.projects">
+			<div>
+				<label>Project Name:</label>
+				<span>{{project.name}}</span>
+			</div>
+			<div>
+				<label>Client:</label>
+				<span>{{project.client}}</span>
+			</div>
+			<div>
+				<label>Account Manager:</label>
+				<span>{{project.accountManager}}</span>
+			</div>
+			<div>
+				<label>Workload:</label>
+				<span>{{project.workload}}</span>
+			</div>
+			<hr/>
+		</div>
+	</div>
+	<div>
+		<label>View positions similar to this profile:</label>
+		<hr/>
+		<div ng-repeat="position in employeePositions">
+			<div>
+				<label>Project Name:</label>
+				<span>{{position.name}}</span>
+			</div>
+			<div>
+				<label>Primary Skill:</label>
+				<span>{{position.primarySkill}}</span>
+			</div>
+			<div>
+				<label>Customer:</label>
+				<span>{{position.customer}}</span>
+			</div>
+			<div>
+				<label>Project:</label>
+				<span>{{position.project}}</span>
+			</div>
+			<div>
+				<label>Location:</label>
+				<span>{{position.location}}</span>
+			</div>
+			<div>
+				<label>Start Date:</label>
+				<span>{{position.startDate}}</span>
+			</div>
+			<div>
+				<label>Employee Status:</label>
+				<span>{{position.employeeStatus}}</span>
+			</div>
+			<div>
+				<label>Position Status:</label>
+				<span>{{position.status}}</span>
+			</div>
+			<hr/>
+		</div>
+		<label>View additional positions:</label>
+		<hr/>
+		<div ng-repeat="position in employeeAdditionalPositions">
+			<div>
+				<label>Project Name:</label>
+				<span>{{position.name}}</span>
+			</div>
+			<div>
+				<label>Primary Skill:</label>
+				<span>{{position.primarySkill}}</span>
+			</div>
+			<div>
+				<label>Customer:</label>
+				<span>{{position.customer}}</span>
+			</div>
+			<div>
+				<label>Project:</label>
+				<span>{{position.project}}</span>
+			</div>
+			<div>
+				<label>Location:</label>
+				<span>{{position.location}}</span>
+			</div>
+			<div>
+				<label>Start Date:</label>
+				<span>{{position.startDate}}</span>
+			</div>
+			<div>
+				<label>Employee Status:</label>
+				<span>{{position.employeeStatus}}</span>
+			</div>
+			<div>
+				<label>Position Status:</label>
+				<span>{{position.status}}</span>
+			</div>
+			<hr/>
+		</div>
+	</div>
+</div>
+<!-- ========================================================= -->
+<!-- end: CONTENT -->
+<!-- ========================================================= -->

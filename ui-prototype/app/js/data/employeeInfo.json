@@ -1,0 +1,31 @@
+{
+	"employeeInfo": {
+		"id": "1",
+		"firstName": "Vyacheslav",
+		"lastName": "Kozyrev",
+		"location": "Chicago",
+		"title": "Lead Information Architect",
+		"jobFunction": "Software Engineering Level 4",
+		"primnarySkill": "UX Development",
+		"resourceManager": "Roman Gregorian",
+		"projects": [{
+				"name": "GOOG-APP",
+				"client": "Googe",
+				"accountManager": "Viktor Dvorkin",
+				"workload": "50%"
+			},
+			{
+				"name": "VTSC-103",
+				"client": "Vertical Screen",
+				"accountManager": "Oleg Malafeev",
+				"workload": "25%"
+			},
+			{
+				"name": "VTSC-105",
+				"client": "Vertical Screen",
+				"accountManager": "Oleg Malafeev",
+				"workload": "25%"
+			}
+		]
+	}
+}
