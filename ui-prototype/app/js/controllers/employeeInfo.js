@@ -33,13 +33,23 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		}
 
 		$scope.getEmployeeInfo ($scope.employeeId);
-		$scope.getEmployeePositions ($scope.employeeId);
+		$scope.getEmployeePositions ($scope.employeeId, $scope.otherSkills, $scope.isRelocation);
 	};
 
 	$scope.getEmployeeInfo = function (_id) {
 		employeeInfoService.getEmployeeInfo (_id).then (
 			function (_data) {
-				$scope.employeeInfo = _data.data.employeeInfo;
+				$scope.employeeInfo = _data.data;
+				
+				/* begin: should be removed */
+				$scope.employeeInfo.projects = [{
+					name: _data.data.project,
+					client: _data.data.customer,
+					projectManager: _data.data.projectManager,
+					accountManager: _data.data.accountManager
+				}];
+				/* end: should be removed */
+
  				$scope.$broadcast ('dataloaded');
 			},
 			function (_data, _status) {
@@ -49,11 +59,17 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		);
 	};
 	
-	$scope.getEmployeePositions = function (_id) {
-		employeeInfoService.getEmployeePositions (_id).then (
+	$scope.getEmployeePositions = function (_id, _otherSkills, _isRelocation) {
+		var otherSkills = (typeof _otherSkills != 'undefined') ? _otherSkills : '';
+		var isRelocation = (typeof _isRelocation != 'undefined') ? _isRelocation : '';
+
+		employeeInfoService.getEmployeePositions (_id, otherSkills, isRelocation).then (
 			function (_data) {
-				$scope.employeePositions = _data.data.employeePositions;
-				$scope.employeeAdditionalPositions = _data.data.additionalPositions;
+				$scope.employeePositions = _data.data;
+				$scope.employeeAdditionalPositions = [];
+				
+				$scope.hasPositions = ($scope.employeePositions && $scope.employeePositions.length);
+				$scope.hasAdditionalPositions = ($scope.employeeAdditionalPositions && $scope.employeeAdditionalPositions.length);
  				$scope.$broadcast ('dataloaded');
 			},
 			function (_data, _status) {

@@ -2,40 +2,295 @@
 /* begin: TAGS */
 /* ========================================================================================== */
 * {
-	box-sizing : border-box ;
-	-moz-box-sizing : border-box ;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0;
 }
 
 HTML, BODY, DIV, UL, LI, SPAN {
-	color : #000 ;
-	font-family : tahoma, arial ;
-	margin : 0px ;
-	padding : 0px ;
+	color: #000;
+	font-family: tahoma, arial;
+	margin: 0;
+	padding: 0;
 }
 
 HTML {
-	font-size : 100% ;
-	height : 100% ;
+	font-size: 90%;
+	height: 100%;
 }
 
 BODY {
-	background : #fff ;
-	height : 100% ;
-	min-height : 100% ;
-	min-width : 995px ;
+	background: #fff;
+	height: 100%;
+	min-height: 100%;
+	min-width: 995px;
 }
 
-LABEL {
-	font-weight: bold;
+BUTTON {
+	cursor: pointer;
+}
+
+INPUT[type="text"]:focus {
+	outline: none;
+}
+
+INPUT[type="checkbox"] {
+	height: 15px;
+	width: 15px;
+	line-height: 30px ;
+	margin: -4px 5px 0 0 ;
+	vertical-align: middle;
 }
 
 IMG {
-	border : 0 ;
+	border: 0;
 }
 
 A {
-	color : #7AADD2 ;
+	color: #4F92BA;
 }
 /* ========================================================================================== */
 /* end: TAGS */
+/* ========================================================================================== */
+
+/* ========================================================================================== */
+/* begin: COMMON */
+/* ========================================================================================== */
+.button-filter {
+	background-color: #8FC400;
+	border: 0;
+	color: #fff;
+	font-weight: bold;
+	height: 30px;
+	padding: 0 30px;
+	line-height: 30px;
+}
+/* ========================================================================================== */
+/* end: COMMON */
+/* ========================================================================================== */
+
+/* ========================================================================================== */
+/* begin: HEADER */
+/* ========================================================================================== */
+.header {
+	background: #2C3F4A;
+	border-bottom: 3px solid #1E72A4;
+	padding : 20px;
+}
+
+	.header-title {
+		border-right: 1px dotted #C4C9CC;
+		color: #C4C9CC;
+		display: inline-block;
+		font-size: 30px;
+		font-weight: normal;
+		line-height: 30px;
+		text-transform: uppercase;
+		padding-right : 10px;
+	}
+	
+	.header-explanation {
+		color: #C4C9CC;
+		display: inline-block;
+		font-size: 11px;
+		font-weight: normal;
+		line-height: 15px;
+		text-transform: uppercase;
+		padding-left : 10px;
+	}
+	
+	.header-search-form {
+		float: right;
+		position: relative;
+	}
+
+		.header-search-form-border {
+			border: 1px solid #4C6B7B;
+		}
+		
+		.header-search-form-border:active,
+		.header-search-form-border:focus,
+		.header-search-form-border:hover {
+			border: 1px solid #7FA1B4;
+		}
+
+			.header-search-form-input {
+				background-color: #364E5B;
+				border: 0;
+				color: #fff;
+				height: 30px;
+				padding: 7px;
+			}
+			
+			.header-search-form-button {
+				background: #4C6B7B url(../img/icoSearch.png) center center no-repeat;
+				border: 0;
+				cursor: pointer;
+				display: inline-block;
+				height: 30px;
+				width: 30px;
+				position: absolute;
+				right: 0;
+			}
+			
+			.header-search-form-border:active .header-search-form-button,
+			.header-search-form-border:focus .header-search-form-button,
+			.header-search-form-border:hover .header-search-form-button {
+				background-color: #7FA1B4;
+			}
+/* ========================================================================================== */
+/* end: HEADER */
+/* ========================================================================================== */
+
+/* ========================================================================================== */
+/* begin: CONTENT */
+/* ========================================================================================== */
+.content {
+	padding: 20px;
+}
+
+	.employee {
+	}
+	
+		.employee-name {
+			border-bottom: 1px dotted #ccc;
+			color: #4F92BA;
+			font-size: 30px;
+			font-weight: normal;
+			padding: 0 0 10px 0;
+		}
+		
+		.employee-card {
+			overflow: hidden;
+		}
+		
+		.employee-photo {
+			float: left;
+			margin: 20px 20px 20px 0;
+			width: 180px;
+		}
+		
+		.employee-info {
+			margin: 20px 620px 20px 200px;
+		}
+		
+			.employee-info-row {
+				border-bottom: 1px dotted #ccc;
+				padding: 10px;
+			}
+
+			.employee-info-row:last-child {
+				border: 0;
+			}
+
+				.employee-info-row-label {
+					display: inline-block;
+					width: 200px;
+				}
+		
+		.employee-projects {
+			float: right;
+			margin: 20px 0 20px 20px;
+			width: 600px;
+		}
+
+			.employee-projects-title {
+				border-bottom: 1px dotted #ccc;
+				display: block;
+				padding: 10px;
+			}
+			
+			.employee-projects-row {
+				border-bottom: 1px dotted #ccc;
+				padding: 10px;
+			}
+			
+			.employee-projects-row:nth-child(odd) {
+				background-color: #fff;
+			}
+			
+			.employee-projects-row:nth-child(even) {
+				background-color: #f5f5f5;
+			}
+
+				.employee-projects-cell {
+					display: inline-block;
+					width: 130px;
+				}
+		
+		.employee-positions-filter {
+			background-color: #f5f5f5;
+			overflow: hidden;
+			padding: 20px;
+		}
+
+			.employee-positions-filter-part {
+				border-right: 1px dotted #ccc;
+				float: left;
+				margin-right: 20px;
+				padding-right: 20px;
+			}
+
+				.employee-positions-filter-part-title {
+					cursor: pointer;
+					line-height: 30px;
+					vertical-align: middle;
+					margin-right: 10px;
+				}
+				
+				.employee-positions-filter-part-input {
+					border: 1px solid #ccc;
+					height: 30px;
+					padding: 7px;
+					vertical-align: middle;
+				}
+		
+		.employee-positions {
+			margin: 20px 0;
+		}
+
+			.employee-positions-title {
+				border-bottom: 1px dotted #ccc;
+				color: #4F92BA;
+				font-size: 20px;
+				font-weight: normal;
+				margin-top: 20px;
+				padding: 0 0 10px 0;
+			}
+			
+			.employee-positions-row-header {
+				border-bottom: 1px dotted #ccc;
+				padding: 10px;
+				margin-top: 20px;
+			}
+
+				.employee-positions-row-header .employee-positions-cell {
+					font-weight: bold;
+				}
+
+			.employee-positions-row {
+				border-bottom: 1px dotted #ccc;
+				padding: 10px;
+			}
+			
+			.employee-positions-row:nth-child(odd) {
+				background-color: #fff;
+			}
+			
+			.employee-positions-row:nth-child(even) {
+				background-color: #f5f5f5;
+			}
+			
+				.employee-positions-cell {
+					display: inline-block;
+					width: 12%
+				}
+
+			.employee-positions-empty {
+				height: 100px;
+				text-align: center;
+				line-height: 100px;
+			}
+/* ========================================================================================== */
+/* end: CONTENT */
 /* ========================================================================================== */

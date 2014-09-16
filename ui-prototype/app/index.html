@@ -10,8 +10,15 @@
 	<!-- ========================================================= -->
 	<!-- begin: HEADER -->
 	<!-- ========================================================= -->
-	<div>
-		<h1>Quick Staffing Tool</h1>
+	<div class="header">
+		<h1 class="header-title">QST</h1><h2 class="header-explanation">Quick<br/>Staffing Tool</h2>
+		<search-widget>
+			<div class="header-search-form">
+				<div class="header-search-form-border">
+					<input type="text" class="header-search-form-input" placeholder="Search..."/><span class="header-search-form-button"></span>
+				</div>
+			</div>
+		</search-widget>
 	</div>
 	<!-- ========================================================= -->
 	<!-- end: HEADER -->
@@ -20,7 +27,7 @@
 	<!-- ========================================================= -->
 	<!-- begin: NG-VIEW -->
 	<!-- ========================================================= -->
-	<div ng-view></div>
+	<div class="content" ng-view></div>
 	<!-- ========================================================= -->
 	<!-- end: NG-VIEW -->
 	<!-- ========================================================= -->
@@ -36,6 +43,7 @@
 	<script src="js/const.js"></script>
 	<script src="js/controllers/employeeInfo.js"></script>
 	<script src="js/services/employeeInfo.js"></script>
+	<script src="js/directives/search.js"></script>
 	<!-- ========================================================= -->
 	<!-- end: SCRIPTS -->
 	<!-- ========================================================= -->

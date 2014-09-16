@@ -1,142 +1,86 @@
 <!-- ========================================================= -->
 <!-- begin: CONTENT -->
 <!-- ========================================================= -->
-<div ng-controller="employeeInfoController">
-	<h2>{{employeeInfo.firstName}} {{employeeInfo.lastName}}</h2>
-	<hr/>
-	<div>
-		<label>Other advanced skills:</label>
-		<input type="text" value="{{otherSkills}}" ng-keyup="onSkillsFieldKeyUp ($event)" id="inptOtherSkills"/>
-	</div>
-	<div>
-		<label>No Relocation</label>
-		<input type="checkbox" ng-click="onNoRelocationClick ($event)" id="chckbxNoRelocation">
-	</div>
-	<button ng-click="onSearchButtonClick ($event)">Get Positions</button>
-	</hr>
-	<div>
-		<label>Location:</label>
-		<span>{{employeeInfo.location}}</span>
-	</div>
-	<div>
-		<label>Title:</label>
-		<span>{{employeeInfo.title}}</span>
-	</div>
-	<div>
-		<label>Job Function:</label>
-		<span>{{employeeInfo.jobFunction}}</span>
-	</div>
-	<div>
-		<label>Primary Skill:</label>
-		<span>{{employeeInfo.primarySkill}}</span>
-	</div>
-	<div>
-		<label>Resource Manager:</label>
-		<span>{{employeeInfo.resourceManager}}</span>
-	</div>
-	<div>
-		<label>Title:</label>
-		<span>{{employeeInfo.title}}</span>
-	</div>
-	<hr/>
-	<div>
-		<label>Current Projects:</label>
-		<hr/>
-		<div ng-repeat="project in employeeInfo.projects">
-			<div>
-				<label>Project Name:</label>
-				<span>{{project.name}}</span>
+<div class="employee" ng-controller="employeeInfoController">
+	<h3 class="employee-name">{{employeeInfo.name}}</h3>
+	<div class="employee-card">
+		<div class="employee-photo">
+			<img src="img/imgPhoto.png" width="180" height="200"/>
+		</div>
+		<div class="employee-projects">
+			<label class="employee-projects-title">Current Projects:</label>
+			<div ng-repeat="project in employeeInfo.projects" class="employee-projects-row">
+				<span class="employee-projects-cell"><a href="#">{{project.name}}</a></span>
+				<span class="employee-projects-cell"><a href="#">{{project.client}}</a></span>
+				<span class="employee-projects-cell"><a href="#">{{project.projectManager}}</a></span>
+				<span class="employee-projects-cell"><a href="#">{{project.accountManager}}</a></span>
 			</div>
-			<div>
-				<label>Client:</label>
-				<span>{{project.client}}</span>
+		</div>
+		<div class="employee-info">
+			<div class="employee-info-row">
+				<label class="employee-info-row-label">Location:</label>
+				<span class="employee-info-row-content">{{employeeInfo.city}}</span>
 			</div>
-			<div>
-				<label>Account Manager:</label>
-				<span>{{project.accountManager}}</span>
+			<div class="employee-info-row">
+				<label class="employee-info-row-label">Job Function:</label>
+				<span class="employee-info-row-content">{{employeeInfo.jobFunction}}</span>
 			</div>
-			<div>
-				<label>Workload:</label>
-				<span>{{project.workload}}</span>
+			<div class="employee-info-row">
+				<label class="employee-info-row-label">Primary Skill:</label>
+				<span class="employee-info-row-content">{{employeeInfo.primarySkill}}</span>
 			</div>
-			<hr/>
+			<div class="employee-info-row">
+				<label class="employee-info-row-label">Resource Manager:</label>
+				<span class="employee-info-row-content">{{employeeInfo.resourceManager}}</span>
+			</div>
 		</div>
 	</div>
-	<div>
-		<label>View positions similar to this profile:</label>
-		<hr/>
-		<div ng-repeat="position in employeePositions">
-			<div>
-				<label>Project Name:</label>
-				<span>{{position.name}}</span>
-			</div>
-			<div>
-				<label>Primary Skill:</label>
-				<span>{{position.primarySkill}}</span>
-			</div>
-			<div>
-				<label>Customer:</label>
-				<span>{{position.customer}}</span>
-			</div>
-			<div>
-				<label>Project:</label>
-				<span>{{position.project}}</span>
-			</div>
-			<div>
-				<label>Location:</label>
-				<span>{{position.location}}</span>
-			</div>
-			<div>
-				<label>Start Date:</label>
-				<span>{{position.startDate}}</span>
-			</div>
-			<div>
-				<label>Employee Status:</label>
-				<span>{{position.employeeStatus}}</span>
-			</div>
-			<div>
-				<label>Position Status:</label>
-				<span>{{position.status}}</span>
-			</div>
-			<hr/>
+	<div class="employee-positions-filter">
+		<div class="employee-positions-filter-part">
+			<label for="inptOtherSkills" class="employee-positions-filter-part-title">Other advanced skills:</label>
+			<input type="text" value="{{otherSkills}}" ng-keyup="onSkillsFieldKeyUp ($event)" id="inptOtherSkills" class="employee-positions-filter-part-input"/>
 		</div>
-		<label>View additional positions:</label>
-		<hr/>
-		<div ng-repeat="position in employeeAdditionalPositions">
-			<div>
-				<label>Project Name:</label>
-				<span>{{position.name}}</span>
-			</div>
-			<div>
-				<label>Primary Skill:</label>
-				<span>{{position.primarySkill}}</span>
-			</div>
-			<div>
-				<label>Customer:</label>
-				<span>{{position.customer}}</span>
-			</div>
-			<div>
-				<label>Project:</label>
-				<span>{{position.project}}</span>
-			</div>
-			<div>
-				<label>Location:</label>
-				<span>{{position.location}}</span>
-			</div>
-			<div>
-				<label>Start Date:</label>
-				<span>{{position.startDate}}</span>
-			</div>
-			<div>
-				<label>Employee Status:</label>
-				<span>{{position.employeeStatus}}</span>
-			</div>
-			<div>
-				<label>Position Status:</label>
-				<span>{{position.status}}</span>
-			</div>
-			<hr/>
+		<div class="employee-positions-filter-part">
+			<input type="checkbox" ng-click="onNoRelocationClick ($event)" id="chckbxNoRelocation">
+			<label for="chckbxNoRelocation" class="employee-positions-filter-part-title">No Relocation</label>
 		</div>
+		<button class="button-filter" ng-click="onSearchButtonClick ($event)">Get Positions</button>
+	</div>
+	<div class="employee-positions">
+		<h4 class="employee-positions-title">View positions similar to this profile</h4>
+		<div class="employee-positions-row-header">
+			<span class="employee-positions-cell">Position</span>
+			<span class="employee-positions-cell">Primary Skill</span>
+			<span class="employee-positions-cell">Customer</span>
+			<span class="employee-positions-cell">Project</span>
+			<span class="employee-positions-cell">Location</span>
+			<span class="employee-positions-cell">Start Date</span>
+			<span class="employee-positions-cell">Account Manager</span>
+			<span class="employee-positions-cell">Project Manager</span>
+		</div>
+		<div class="employee-positions-row" ng-show="hasPositions" ng-repeat="position in employeePositions">
+			<span class="employee-positions-cell">{{position.positionName}}</span>
+			<span class="employee-positions-cell">{{position.primarySkill}}</span>
+			<span class="employee-positions-cell"><a href="#">{{position.customer}}</a></span>
+			<span class="employee-positions-cell"><a href="#">{{position.project}}</a></span>
+			<span class="employee-positions-cell">{{position.city}}</span>
+			<span class="employee-positions-cell">{{position.plannedStartDate}}</span>
+			<span class="employee-positions-cell"><a href="#">{{position.accountManager}}</a></span>
+			<span class="employee-positions-cell"><a href="#">{{position.projectManager}}</a></span>
+		</div>
+		<div class="employee-positions-empty" ng-hide="hasPositions">No Positions Found</div>
+		<h4 class="employee-positions-title">View additional positions</h4>
+		<div class="employee-positions-row" ng-show="hasAdditionalPositions" ng-repeat="position in employeeAdditionalPositions">
+			<span class="employee-positions-cell">{{position.positionName}}</span>
+			<span class="employee-positions-cell">{{position.primarySkill}}</span>
+			<span class="employee-positions-cell"><a href="#">{{position.customer}}</a></span>
+			<span class="employee-positions-cell"><a href="#">{{position.project}}</a></span>
+			<span class="employee-positions-cell">{{position.city}}</span>
+			<span class="employee-positions-cell">{{position.plannedStartDate}}</span>
+			<span class="employee-positions-cell"><a href="#">{{position.accountManager}}</a></span>
+			<span class="employee-positions-cell"><a href="#">{{position.projectManager}}</a></span>
+		</div>
+		<div class="employee-positions-empty" ng-hide="hasAdditionalPositions">No Positions Found</div>
 	</div>
 </div>
 <!-- ========================================================= -->
