@@ -6,6 +6,7 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 
 	/* elements */
 	$scope.inptOtherSkills = null;
+	$scope.inptTitle = null;
 	$scope.chckbxNoRelocation = null;
 
 	/* ======================================================== */
@@ -13,6 +14,7 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 	/* ======================================================== */
 	$scope.init = function init () {
 		$scope.inptOtherSkills = $('#inptOtherSkills');
+		$scope.inptTitle = $('#inptTitle');
 		$scope.chckbxNoRelocation = $('#chckbxNoRelocation');
 
 		if (typeof $routeParams.isrelocationvalue != 'undefined') {
@@ -27,7 +29,7 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		}
 		else {
 			$scope.isRelocation = false;
-			$scope.chckbxNoRelocation.removeAttr ('checked');
+			$scope.chckbxNoRelocation.attr ('checked', 'checked');
 		}
 		
 		if (typeof $routeParams.skillsvalue != 'undefined') {
@@ -36,24 +38,23 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		else {
 			$scope.otherSkills = '';
 		}
+		
+		if (typeof $routeParams.employeetitle != 'undefined') {
+			$scope.otherTitle = $routeParams.employeetitle;
+		}
+		else {
+			$scope.otherTitle = '';
+		}
 
 		$scope.getEmployeeInfo ($scope.employeeId);
-		$scope.getEmployeePositions ($scope.employeeId, $scope.otherSkills, $scope.isRelocation);
+		$scope.getEmployeePositions ($scope.employeeId, $scope.otherSkills, $scope.otherTitle, $scope.isRelocation);
 	};
 
 	$scope.getEmployeeInfo = function (_id) {
 		employeeInfoService.getEmployeeInfo (_id).then (
 			function (_data) {
 				$scope.employeeInfo = _data.data;
-				
-				/* begin: should be removed */
-				$scope.employeeInfo.projects = [{
-					name: _data.data.project,
-					client: _data.data.customer,
-					projectManager: _data.data.projectManager,
-					accountManager: _data.data.accountManager
-				}];
-				/* end: should be removed */
+				$scope.employeeInfo.projects = _data.data.projects;
 
  				$scope.$broadcast ('dataloaded');
 			},
@@ -64,14 +65,30 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		);
 	};
 	
-	$scope.getEmployeePositions = function (_id, _otherSkills, _isRelocation) {
+	$scope.getEmployeePositions = function (_id, _otherSkills, _otherTitle, _isRelocation) {
 		var otherSkills = (typeof _otherSkills != 'undefined') ? _otherSkills : '';
+		var otherTitle = (typeof _otherTitle != 'undefined') ? _otherTitle : '';
 		var isRelocation = (typeof _isRelocation != 'undefined') ? _isRelocation : '';
 
-		employeeInfoService.getEmployeePositions (_id, otherSkills, isRelocation).then (
+		employeeInfoService.getEmployeePositions (_id, otherSkills, otherTitle, isRelocation).then (
 			function (_data) {
-				$scope.employeePositions = _data.data;
+				var positions = _data.data;
+
+				$scope.employeePositions = [];
 				$scope.employeeAdditionalPositions = [];
+				
+				var date = null;
+				for (var i = 0; i < positions.length; i++) {
+					date = new Date (parseInt (positions[i].startDate));
+					positions[i].startDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+					
+					if (positions[i].rating >= 1000) {
+						$scope.employeePositions.push (positions[i]);
+					}
+					else {
+						$scope.employeeAdditionalPositions.push (positions[i]);
+					}
+				}
 				
 				$scope.hasPositions = ($scope.employeePositions && $scope.employeePositions.length);
 				$scope.hasAdditionalPositions = ($scope.employeeAdditionalPositions && $scope.employeeAdditionalPositions.length);
@@ -91,13 +108,18 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		$scope.otherSkills = _event.target.value;
 	}
 	
+	$scope.onTitleFieldKeyUp = function (_event) {
+		$scope.otherTitle = _event.target.value;
+	}
+
 	$scope.onNoRelocationClick = function (_event) {
 		$scope.isRelocation = !_event.target.checked;
 	}
 
 	$scope.onSearchButtonClick = function (_event) {
 		var otherSkills = ($scope.otherSkills == '') ? '' : '/skills/' + $scope.otherSkills;
-		$location.path ('/employee-info/id/' + $scope.employeeId + otherSkills + '/isrelocation/' + $scope.isRelocation);
+		var otherTitle = ($scope.otherTitle == '') ? '' : '/employeetitle/' + $scope.otherTitle;
+		$location.path ('/employee-info/id/' + $scope.employeeId + otherSkills + otherTitle + '/isrelocation/' + $scope.isRelocation);
 	}
 
 	/* ======================================================== */

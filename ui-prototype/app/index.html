@@ -20,8 +20,8 @@
 			</div>
 			<ul class="header-search-suggestions" ng-show="hasSuggestions">
 				<li class="header-search-suggestions-item" ng-repeat="suggestion in suggestions" ng-click="onSuggestedItemClick (suggestion)">
-					<div class="header-search-suggestions-item-title">{{suggestion.name}}</div>
-					<div class="header-search-suggestions-item-info">{{suggestion.jobFunction}}</div>
+					<div class="header-search-suggestions-item-title">{{suggestion.fullName_full}}</div>
+					<div class="header-search-suggestions-item-info">{{suggestion.title}}</div>
 				</li>
 			</ul>
 		</search-widget>

@@ -13,7 +13,23 @@ var quickStaffingApp = angular.module ('quickStaffingApp', ['ngRoute', 'ngSaniti
 				controller: employeeInfoController,
 				templateUrl: 'employee-info.html'
 			}).
+			when ('/employee-info/id/:idvalue/employeetitle/:employeetitle', {
+				controller: employeeInfoController,
+				templateUrl: 'employee-info.html'
+			}).
 			when ('/employee-info/id/:idvalue/skills/:skillsvalue/isrelocation/:isrelocationvalue', {
+				controller: employeeInfoController,
+				templateUrl: 'employee-info.html'
+			}).
+			when ('/employee-info/id/:idvalue/skills/:skillsvalue/employeetitle/:employeetitle', {
+				controller: employeeInfoController,
+				templateUrl: 'employee-info.html'
+			}).
+			when ('/employee-info/id/:idvalue/employeetitle/:employeetitle/isrelocation/:isrelocationvalue', {
+				controller: employeeInfoController,
+				templateUrl: 'employee-info.html'
+			}).
+			when ('/employee-info/id/:idvalue/skills/:skillsvalue/employeetitle/:employeetitle/isrelocation/:isrelocationvalue', {
 				controller: employeeInfoController,
 				templateUrl: 'employee-info.html'
 			}).
