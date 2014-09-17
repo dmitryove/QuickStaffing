@@ -14,6 +14,9 @@
 		<h1 class="header-title">QST</h1><h2 class="header-explanation">Quick<br/>Staffing Tool</h2>
 		<search-widget>
 			<div class="header-search-form">
+				<div class="header-search-form-switcher">
+					<button class="header-search-form-switcher-button header-search-form-button-active">Search Employee</button><button class="header-search-form-switcher-button header-search-form-button-unactive" ng-click="onSwitcherClick ($event)">Search Position</button>
+				</div>
 				<div class="header-search-form-border">
 					<input type="text" class="header-search-form-input" placeholder="Search..." ng-keyup="onSearchFieldKeyUp ($event)"/><span class="header-search-form-button"></span>
 				</div>

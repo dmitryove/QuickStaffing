@@ -27,6 +27,10 @@ quickStaffingApp.directive ('searchWidget', ['employeeSearchService', '$location
 			_scope.hasSuggestions = false;
 		}
 	}
+	
+	var onSwitcherClick = function (_event) {
+		alert ('Coming soon...');
+	}
 
 	var linkFn = function (_scope, _element, _attributes) {
 		var container = $(_element.children ()[0]);
@@ -42,6 +46,8 @@ quickStaffingApp.directive ('searchWidget', ['employeeSearchService', '$location
 			_scope.hasSuggestions = false;
 			inptKeyword.val('');
 		}
+		
+		_scope.onSwitcherClick = onSwitcherClick;
 	}
 
 	return {

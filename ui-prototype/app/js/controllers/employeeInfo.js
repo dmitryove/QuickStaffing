@@ -106,14 +106,17 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 	/* ======================================================== */
 	$scope.onSkillsFieldKeyUp = function (_event) {
 		$scope.otherSkills = _event.target.value;
+		//$scope.onSearchButtonClick (_event);
 	}
 	
 	$scope.onTitleFieldKeyUp = function (_event) {
 		$scope.otherTitle = _event.target.value;
+		//$scope.onSearchButtonClick (_event);
 	}
 
 	$scope.onNoRelocationClick = function (_event) {
 		$scope.isRelocation = !_event.target.checked;
+		//$scope.onSearchButtonClick (_event);
 	}
 
 	$scope.onSearchButtonClick = function (_event) {
