@@ -138,6 +138,38 @@ A {
 			.header-search-form-border:hover .header-search-form-button {
 				background-color: #7FA1B4;
 			}
+
+	.header-search-suggestions {
+		background: #fff;
+		border: 1px solid #4C6B7B;
+		position: absolute;
+		right: 20px;
+		width: 250px;
+		margin-top: 5px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+		.header-search-suggestions-item {
+			border-bottom: 1px dotted #ccc;
+			cursor: pointer;
+			padding: 10px;
+			list-style: none;
+		}
+		
+		.header-search-suggestions-item:hover {
+			background-color: #DCE9F1;
+		}
+
+			.header-search-suggestions-item-title {
+				font-weight: bold;
+				color: #4F92BA;
+			}
+			
+			.header-search-suggestions-item-info {
+				color: #888;
+				font-size: 11px;
+			}
 /* ========================================================================================== */
 /* end: HEADER */
 /* ========================================================================================== */

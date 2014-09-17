@@ -15,9 +15,15 @@
 		<search-widget>
 			<div class="header-search-form">
 				<div class="header-search-form-border">
-					<input type="text" class="header-search-form-input" placeholder="Search..."/><span class="header-search-form-button"></span>
+					<input type="text" class="header-search-form-input" placeholder="Search..." ng-keyup="onSearchFieldKeyUp ($event)"/><span class="header-search-form-button"></span>
 				</div>
 			</div>
+			<ul class="header-search-suggestions" ng-show="hasSuggestions">
+				<li class="header-search-suggestions-item" ng-repeat="suggestion in suggestions" ng-click="onSuggestedItemClick (suggestion)">
+					<div class="header-search-suggestions-item-title">{{suggestion.name}}</div>
+					<div class="header-search-suggestions-item-info">{{suggestion.jobFunction}}</div>
+				</li>
+			</ul>
 		</search-widget>
 	</div>
 	<!-- ========================================================= -->
@@ -43,6 +49,7 @@
 	<script src="js/const.js"></script>
 	<script src="js/controllers/employeeInfo.js"></script>
 	<script src="js/services/employeeInfo.js"></script>
+	<script src="js/services/employeeSearch.js"></script>
 	<script src="js/directives/search.js"></script>
 	<!-- ========================================================= -->
 	<!-- end: SCRIPTS -->

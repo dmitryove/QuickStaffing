@@ -3,9 +3,7 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 	/* properties */
 	/* ======================================================== */
 	$scope.employeeId = $routeParams.idvalue;
-	$scope.otherSkills = $routeParams.skillsvalue;
-	$scope.isRelocation = false;
-	
+
 	/* elements */
 	$scope.inptOtherSkills = null;
 	$scope.chckbxNoRelocation = null;
@@ -30,6 +28,13 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		else {
 			$scope.isRelocation = false;
 			$scope.chckbxNoRelocation.removeAttr ('checked');
+		}
+		
+		if (typeof $routeParams.skillsvalue != 'undefined') {
+			$scope.otherSkills = $routeParams.skillsvalue;
+		}
+		else {
+			$scope.otherSkills = '';
 		}
 
 		$scope.getEmployeeInfo ($scope.employeeId);
@@ -91,7 +96,8 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 	}
 
 	$scope.onSearchButtonClick = function (_event) {
-		$location.path ('/employee-info/id/' + $scope.employeeId + '/skills/' + $scope.otherSkills + '/isrelocation/' + $scope.isRelocation) ;
+		var otherSkills = ($scope.otherSkills == '') ? '' : '/skills/' + $scope.otherSkills;
+		$location.path ('/employee-info/id/' + $scope.employeeId + otherSkills + '/isrelocation/' + $scope.isRelocation);
 	}
 
 	/* ======================================================== */
