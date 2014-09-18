@@ -65,6 +65,7 @@
 	<div class="employee-positions">
 		<h4 class="employee-positions-title">Open positions meeting the profile requirements</h4>
 		<div class="employee-positions-row-header">
+			<span class="employee-positions-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 			<span class="employee-positions-cell">Position</span>
 			<span class="employee-positions-cell">Primary Skill</span>
 			<span class="employee-positions-cell">Customer</span>
@@ -73,6 +74,7 @@
 			<span class="employee-positions-cell">Start Date</span>
 		</div>
 		<div class="employee-positions-row" ng-show="hasPositions" ng-repeat="position in employeePositions">
+			<span class="employee-positions-cell-checkbox"><input type="checkbox"/></span>
 			<span class="employee-positions-cell">{{position.position}}</span>
 			<span class="employee-positions-cell">{{position.primarySkill}}</span>
 			<span class="employee-positions-cell"><a href="#">{{position.customer}}</a></span>
@@ -82,7 +84,17 @@
 		</div>
 		<div class="employee-positions-empty" ng-hide="hasPositions">No Positions Found</div>
 		<h4 class="employee-positions-title">Positions below are lower or higher level or excluded or have booked candidates</h4>
+		<div class="employee-positions-row-header">
+			<span class="employee-positions-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span class="employee-positions-cell">Position</span>
+			<span class="employee-positions-cell">Primary Skill</span>
+			<span class="employee-positions-cell">Customer</span>
+			<span class="employee-positions-cell">Project</span>
+			<span class="employee-positions-cell">Location</span>
+			<span class="employee-positions-cell">Start Date</span>
+		</div>
 		<div class="employee-positions-row" ng-show="hasAdditionalPositions" ng-repeat="position in employeeAdditionalPositions">
+			<span class="employee-positions-cell-checkbox"><input type="checkbox"/></span>
 			<span class="employee-positions-cell">{{position.position}}</span>
 			<span class="employee-positions-cell">{{position.primarySkill}}</span>
 			<span class="employee-positions-cell"><a href="#">{{position.customer}}</a></span>
