@@ -28,8 +28,8 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 			}
 		}
 		else {
-			$scope.isRelocation = false;
-			$scope.chckbxNoRelocation.attr ('checked', 'checked');
+			$scope.isRelocation = true;
+			$scope.chckbxNoRelocation.removeAttr ('checked');
 		}
 		
 		if (typeof $routeParams.skillsvalue != 'undefined') {

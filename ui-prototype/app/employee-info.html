@@ -56,8 +56,14 @@
 		</div>
 		<button class="button-filter" ng-click="onSearchButtonClick ($event)">Get Positions</button>
 	</div>
+	<div class="buttons">
+		<button class="button-filter">Propose</button>
+		<button class="button-filter">Exclude</button>
+		<button class="button-filter">Check positions</button>
+		<button class="button-filter">Check employee</button>
+	</div>
 	<div class="employee-positions">
-		<h4 class="employee-positions-title">View positions similar to this profile</h4>
+		<h4 class="employee-positions-title">Open positions meeting the profile requirements</h4>
 		<div class="employee-positions-row-header">
 			<span class="employee-positions-cell">Position</span>
 			<span class="employee-positions-cell">Primary Skill</span>
@@ -75,7 +81,7 @@
 			<span class="employee-positions-cell">{{position.startDate}}</span>
 		</div>
 		<div class="employee-positions-empty" ng-hide="hasPositions">No Positions Found</div>
-		<h4 class="employee-positions-title">View additional positions</h4>
+		<h4 class="employee-positions-title">Positions below are lower or higher level or excluded or have booked candidates</h4>
 		<div class="employee-positions-row" ng-show="hasAdditionalPositions" ng-repeat="position in employeeAdditionalPositions">
 			<span class="employee-positions-cell">{{position.position}}</span>
 			<span class="employee-positions-cell">{{position.primarySkill}}</span>
