@@ -10,10 +10,10 @@
 		<div class="employee-projects">
 			<label class="employee-projects-title">Current Projects:</label>
 			<div ng-repeat="project in employeeInfo.projects" class="employee-projects-row">
-				<span class="employee-projects-cell"><a href="#">{{project}}</a></span>
+				<span class="employee-projects-cell"><a href="#">{{project.name}}</a></span>
+				<span class="employee-projects-cell"><a href="#">{{project.customer}}</a></span>
 				<!--
-				<span class="employee-projects-cell"><a href="#">{{project.client}}</a></span>
-				<span class="employee-projects-cell"><a href="#">{{project.projectManager}}</a></span>
+				<span class="employee-projects-cell"><a href="#">{{project.manager}}</a></span>
 				<span class="employee-projects-cell"><a href="#">{{project.accountManager}}</a></span>
 				-->
 			</div>

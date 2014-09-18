@@ -11,7 +11,7 @@ quickStaffingApp.service ('employeeInfoService', function ($http) {
 	
 	this.getEmployeePositions = function (_id, _otherSkills, _otherTitle, _isRelocation) {
 		var employeeSkills = (_otherSkills != '') ? '&employeeSkills=' + _otherSkills : '';
-		var employeeTitle = (_otherTitle != '') ? '&employeeTitle=' + _otherTitle : '';
+		var employeeTitle = (_otherTitle != '') ? '&employeeTitles=' + _otherTitle : '';
 		var relocate = (_isRelocation != '') ? '&relocate=' + _isRelocation : '';
 		return $http ({
 			method: 'GET',
