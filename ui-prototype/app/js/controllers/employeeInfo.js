@@ -124,6 +124,14 @@ function employeeInfoController ($scope, $http, $location, $routeParams, employe
 		var otherTitle = ($scope.otherTitle == '') ? '' : '/employeetitle/' + $scope.otherTitle;
 		$location.path ('/employee-info/id/' + $scope.employeeId + otherSkills + otherTitle + '/isrelocation/' + $scope.isRelocation);
 	}
+	
+	$scope.onProposeButtonClick = function (_event) {
+		alert ('Candidate has been proposed on selected positions!');
+	}
+	
+	$scope.onExcludeButtonClick = function (_event) {
+		alert ('Selected positions were excluded from the list!');
+	}
 
 	/* ======================================================== */
 	/* init */

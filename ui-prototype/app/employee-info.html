@@ -47,7 +47,7 @@
 			<input type="text" value="{{otherSkills}}" ng-keyup="onSkillsFieldKeyUp ($event)" id="inptOtherSkills" class="employee-positions-filter-part-input"/>
 		</div>
 		<div class="employee-positions-filter-part">
-			<label for="inptTitle" class="employee-positions-filter-part-title">Other job function:</label>
+			<label for="inptTitle" class="employee-positions-filter-part-title">Other titles:</label>
 			<input type="text" value="{{otherTitle}}" ng-keyup="onTitleFieldKeyUp ($event)" id="inptTitle" class="employee-positions-filter-part-input"/>
 		</div>
 		<div class="employee-positions-filter-part">
@@ -57,8 +57,8 @@
 		<button class="button-filter" ng-click="onSearchButtonClick ($event)">Get Positions</button>
 	</div>
 	<div class="buttons">
-		<button class="button-filter">Propose</button>
-		<button class="button-filter">Exclude</button>
+		<button class="button-filter" ng-click="onProposeButtonClick ($event)">Propose</button>
+		<button class="button-filter" ng-click="onExcludeButtonClick ($event)">Exclude</button>
 		<button class="button-filter">Check positions</button>
 		<button class="button-filter">Check employee</button>
 	</div>
@@ -72,15 +72,17 @@
 			<span class="employee-positions-cell">Project</span>
 			<span class="employee-positions-cell">Location</span>
 			<span class="employee-positions-cell">Start Date</span>
+			<span class="employee-positions-cell">Position Status</span>
 		</div>
 		<div class="employee-positions-row" ng-show="hasPositions" ng-repeat="position in employeePositions">
 			<span class="employee-positions-cell-checkbox"><input type="checkbox"/></span>
-			<span class="employee-positions-cell">{{position.position}}</span>
+			<span class="employee-positions-cell"><a target="_blank" href="https://upsa.epam.com/workload/resplanPositionEdit.do?position.positionId={{position.positionId}}">{{position.position}}</a></span>
 			<span class="employee-positions-cell">{{position.primarySkill}}</span>
-			<span class="employee-positions-cell"><a href="#">{{position.customer}}</a></span>
-			<span class="employee-positions-cell"><a href="#">{{position.caseName}}</a></span>
+			<span class="employee-positions-cell">{{position.customer}}</span>
+			<span class="employee-positions-cell">{{position.caseName}}</span>
 			<span class="employee-positions-cell">{{position.city}}</span>
 			<span class="employee-positions-cell">{{position.startDate}}</span>
+			<span class="employee-positions-cell">{{position.status}}</span>
 		</div>
 		<div class="employee-positions-empty" ng-hide="hasPositions">No Positions Found</div>
 		<h4 class="employee-positions-title">Positions below are lower or higher level or excluded or have booked candidates</h4>
@@ -92,15 +94,17 @@
 			<span class="employee-positions-cell">Project</span>
 			<span class="employee-positions-cell">Location</span>
 			<span class="employee-positions-cell">Start Date</span>
+			<span class="employee-positions-cell">Position Status</span>
 		</div>
 		<div class="employee-positions-row" ng-show="hasAdditionalPositions" ng-repeat="position in employeeAdditionalPositions">
 			<span class="employee-positions-cell-checkbox"><input type="checkbox"/></span>
-			<span class="employee-positions-cell">{{position.position}}</span>
+			<span class="employee-positions-cell"><a target="_blank" href="https://upsa.epam.com/workload/resplanPositionEdit.do?position.positionId={{position.positionId}}">{{position.position}}</a></span>
 			<span class="employee-positions-cell">{{position.primarySkill}}</span>
-			<span class="employee-positions-cell"><a href="#">{{position.customer}}</a></span>
-			<span class="employee-positions-cell"><a href="#">{{position.caseName}}</a></span>
+			<span class="employee-positions-cell">{{position.customer}}</span>
+			<span class="employee-positions-cell">{{position.caseName}}</span>
 			<span class="employee-positions-cell">{{position.city}}</span>
 			<span class="employee-positions-cell">{{position.startDate}}</span>
+			<span class="employee-positions-cell">{{position.status}}</span>
 		</div>
 		<div class="employee-positions-empty" ng-hide="hasAdditionalPositions">No Positions Found</div>
 	</div>
