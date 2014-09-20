@@ -1,0 +1,108 @@
+<!-- ========================================================= -->
+<!-- begin: CONTENT -->
+<!-- ========================================================= -->
+<div class="employee" ng-controller="positionInfoController">
+	<h3 class="position-name">{{positionInfo.project}} - {{positionInfo.position}}</h3>
+	<div class="position-card">
+		<div class="position-info">
+			<div class="info-row">
+				<label class="info-row-label">Primary Skill:</label>
+				<span class="info-row-content">{{positionInfo.primarySkill}}</span>
+			</div>
+			<div class="info-row">
+				<label class="info-row-label">Location:</label>
+				<span class="info-row-content">{{positionInfo.city}}</span>
+			</div>
+			<div class="info-row">
+				<label class="info-row-label">Start Date:</label>
+				<span class="info-row-content">{{positionInfo.startDate}}</span>
+			</div>
+			<div class="info-row">
+				<label class="info-row-label">Status:</label>
+				<span class="info-row-content">{{positionInfo.status}}</span>
+			</div>
+			<div class="info-row">
+				<label class="info-row-label">Account Manager:</label>
+				<span class="info-row-content">{{positionInfo.accountManager}}</span>
+			</div>
+			<div class="info-row">
+				<label class="info-row-label">Resource Manager:</label>
+				<span class="info-row-content">{{positionInfo.resourceManager}}</span>
+			</div>
+			<div class="info-row">
+				<label class="info-row-label">View in UPSA:</label>
+				<span class="info-row-content"><a target="_blank" href="{{positionInfo.link}}">here</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="info-filter">
+		<div class="info-filter-part">
+			<input type="checkbox" id="chckbxIM">
+			<label for="chckbxIM" class="info-filter-part-title">IM candidate</label>
+		</div>
+		<div class="info-filter-part">
+			<input type="checkbox" id="chckbxNoWorkloadToday">
+			<label for="chckbxNoWorkloadToday" class="info-filter-part-title">No workload today</label>
+		</div>
+		<div class="info-filter-part">
+			<input type="checkbox" id="chckbxNoWorkloadAtStart">
+			<label for="chckbxNoWorkloadAtStart" class="info-filter-part-title">No workload at start date</label>
+		</div>
+		<div class="info-filter-part">
+			<input type="checkbox" id="chckbxNoRelocation">
+			<label for="chckbxNoRelocation" class="info-filter-part-title">No relocation</label>
+		</div>
+		<button class="button-filter">Get Candidates</button>
+	</div>
+	<div class="buttons">
+		<button class="button-filter">Propose</button>
+		<button class="button-filter">Exclude</button>
+		<a href="mailto:AccountManager@epam.com?Subject=Confirm position&Body=Could you please confirm that the position is still open and needs to be staffed?"><button class="button-filter">Check positions</button></a>
+		<a href="mailto:ResoureManager@epam.com?Subject=Confirm employee availability&Body=Could you please confirm that the employee is available to be proposed to other projects?"><button class="button-filter">Check employee</button></a>
+	</div>
+	<div class="table">
+		<h4 class="table-title">People meeting the position requirements</h4>
+		<div class="table-row-header">
+			<span class="table-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span class="table-cell">Employee Name</span>
+			<span class="table-cell">Primary Skill</span>
+			<span class="table-cell">Other Skills</span>
+			<span class="table-cell">Title</span>
+			<span class="table-cell">Job Function</span>
+			<span class="table-cell">Employee Status</span>
+		</div>
+		<div class="table-row" ng-show="hasEmployees" ng-repeat="employee in positionEmployees">
+			<span class="table-cell-checkbox"><input type="checkbox"/></span>
+			<span class="table-cell"><a target="_blank" href="mailto:{{employee.email}}">{{employee.fullName_full}}</a></span>
+			<span class="table-cell">{{employee.primarySkill}}</span>
+			<span class="table-cell"> </span>
+			<span class="table-cell">{{employee.title}}</span>
+			<span class="table-cell">{{employee.jobFunction}}</span>
+			<span class="table-cell">{{employee.availability}}</span>
+		</div>
+		<div class="table-empty" ng-hide="hasEmployees">No Candidates Found</div>
+		<h4 class="table-title">People below meets the required skills partially or excluded or booked or lower/higher level</h4>
+		<div class="table-row-header">
+			<span class="table-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span class="table-cell">Employee Name</span>
+			<span class="table-cell">Primary Skill</span>
+			<span class="table-cell">Other Skills</span>
+			<span class="table-cell">Title</span>
+			<span class="table-cell">Job Function</span>
+			<span class="table-cell">Employee Status</span>
+		</div>
+		<div class="table-row" ng-show="hasAdditionalEmployees" ng-repeat="employee in positionAdditionalEmployees">
+			<span class="table-cell-checkbox"><input type="checkbox"/></span>
+			<span class="table-cell"><a target="_blank" href="mailto:{{employee.email}}">{{employee.fullName_full}}</a></span>
+			<span class="table-cell">{{employee.primarySkill}}</span>
+			<span class="table-cell"> </span>
+			<span class="table-cell">{{employee.title}}</span>
+			<span class="table-cell">{{employee.jobFunction}}</span>
+			<span class="table-cell">{{employee.availability}}</span>
+		</div>
+		<div class="table-empty" ng-hide="hasAdditionalEmployees">No Candidates Found</div>
+	</div>
+</div>
+<!-- ========================================================= -->
+<!-- end: CONTENT -->
+<!-- ========================================================= -->

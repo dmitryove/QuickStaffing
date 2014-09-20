@@ -33,6 +33,10 @@ var quickStaffingApp = angular.module ('quickStaffingApp', ['ngRoute', 'ngSaniti
 				controller: employeeInfoController,
 				templateUrl: 'employee-info.html'
 			}).
+			when ('/position-info/id/:idvalue', {
+				controller: positionInfoController,
+				templateUrl: 'position-info.html'
+			}).
 			otherwise ({
 				redirectTo: '/employee-info/id/0'
 			});

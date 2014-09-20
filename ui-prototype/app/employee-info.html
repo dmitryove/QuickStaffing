@@ -19,94 +19,94 @@
 			</div>
 		</div>
 		<div class="employee-info">
-			<div class="employee-info-row">
-				<label class="employee-info-row-label">Title:</label>
-				<span class="employee-info-row-content">{{employeeInfo.title}}</span>
+			<div class="info-row">
+				<label class="info-row-label">Title:</label>
+				<span class="info-row-content">{{employeeInfo.title}}</span>
 			</div>
-			<div class="employee-info-row">
-				<label class="employee-info-row-label">Location:</label>
-				<span class="employee-info-row-content">{{employeeInfo.city}}</span>
+			<div class="info-row">
+				<label class="info-row-label">Location:</label>
+				<span class="info-row-content">{{employeeInfo.city}}</span>
 			</div>
-			<div class="employee-info-row">
-				<label class="employee-info-row-label">Job Function:</label>
-				<span class="employee-info-row-content">{{employeeInfo.jobFunction}}</span>
+			<div class="info-row">
+				<label class="info-row-label">Job Function:</label>
+				<span class="info-row-content">{{employeeInfo.jobFunction}}</span>
 			</div>
-			<div class="employee-info-row">
-				<label class="employee-info-row-label">Primary Skill:</label>
-				<span class="employee-info-row-content">{{employeeInfo.primarySkill}}</span>
+			<div class="info-row">
+				<label class="info-row-label">Primary Skill:</label>
+				<span class="info-row-content">{{employeeInfo.primarySkill}}</span>
 			</div>
-			<div class="employee-info-row">
-				<label class="employee-info-row-label">Resource Manager:</label>
-				<span class="employee-info-row-content"><a href="#">{{employeeInfo.manager}}</a></span>
+			<div class="info-row">
+				<label class="info-row-label">Resource Manager:</label>
+				<span class="info-row-content"><a href="#">{{employeeInfo.manager}}</a></span>
 			</div>
 		</div>
 	</div>
-	<div class="employee-positions-filter">
-		<div class="employee-positions-filter-part">
-			<label for="inptOtherSkills" class="employee-positions-filter-part-title">Other expert or advanced skills:</label>
-			<input type="text" value="{{otherSkills}}" ng-keyup="onSkillsFieldKeyUp ($event)" id="inptOtherSkills" class="employee-positions-filter-part-input"/>
+	<div class="info-filter">
+		<div class="info-filter-part">
+			<label for="inptOtherSkills" class="info-filter-part-title">Other expert or advanced skills:</label>
+			<input type="text" value="{{otherSkills}}" ng-keyup="onSkillsFieldKeyUp ($event)" id="inptOtherSkills" class="info-filter-part-input"/>
 		</div>
-		<div class="employee-positions-filter-part">
-			<label for="inptTitle" class="employee-positions-filter-part-title">Other titles:</label>
-			<input type="text" value="{{otherTitle}}" ng-keyup="onTitleFieldKeyUp ($event)" id="inptTitle" class="employee-positions-filter-part-input"/>
+		<div class="info-filter-part">
+			<label for="inptTitle" class="info-filter-part-title">Other titles:</label>
+			<input type="text" value="{{otherTitle}}" ng-keyup="onTitleFieldKeyUp ($event)" id="inptTitle" class="info-filter-part-input"/>
 		</div>
-		<div class="employee-positions-filter-part">
+		<div class="info-filter-part">
 			<input type="checkbox" ng-click="onNoRelocationClick ($event)" id="chckbxNoRelocation">
-			<label for="chckbxNoRelocation" class="employee-positions-filter-part-title">No Relocation</label>
+			<label for="chckbxNoRelocation" class="info-filter-part-title">No Relocation</label>
 		</div>
 		<button class="button-filter" ng-click="onSearchButtonClick ($event)">Get Positions</button>
 	</div>
 	<div class="buttons">
 		<button class="button-filter" ng-click="onProposeButtonClick ($event)">Propose</button>
 		<button class="button-filter" ng-click="onExcludeButtonClick ($event)">Exclude</button>
-		<button class="button-filter">Check positions</button>
-		<button class="button-filter">Check employee</button>
+		<a href="mailto:AccountManager@epam.com?Subject=Confirm position&Body=Could you please confirm that the position is still open and needs to be staffed?"><button class="button-filter">Check positions</button></a>
+		<a href="mailto:ResoureManager@epam.com?Subject=Confirm employee availability&Body=Could you please confirm that the employee is available to be proposed to other projects?"><button class="button-filter">Check employee</button></a>
 	</div>
-	<div class="employee-positions">
-		<h4 class="employee-positions-title">Open positions meeting the profile requirements</h4>
-		<div class="employee-positions-row-header">
-			<span class="employee-positions-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-			<span class="employee-positions-cell">Position</span>
-			<span class="employee-positions-cell">Primary Skill</span>
-			<span class="employee-positions-cell">Customer</span>
-			<span class="employee-positions-cell">Project</span>
-			<span class="employee-positions-cell">Location</span>
-			<span class="employee-positions-cell">Start Date</span>
-			<span class="employee-positions-cell">Position Status</span>
+	<div class="table">
+		<h4 class="table-title">Open positions meeting the profile requirements</h4>
+		<div class="table-row-header">
+			<span class="table-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span class="table-cell">Position</span>
+			<span class="table-cell">Primary Skill</span>
+			<span class="table-cell">Customer</span>
+			<span class="table-cell">Project</span>
+			<span class="table-cell">Location</span>
+			<span class="table-cell">Start Date</span>
+			<span class="table-cell">Position Status</span>
 		</div>
-		<div class="employee-positions-row" ng-show="hasPositions" ng-repeat="position in employeePositions">
-			<span class="employee-positions-cell-checkbox"><input type="checkbox"/></span>
-			<span class="employee-positions-cell"><a target="_blank" href="https://upsa.epam.com/workload/resplanPositionEdit.do?position.positionId={{position.positionId}}">{{position.position}}</a></span>
-			<span class="employee-positions-cell">{{position.primarySkill}}</span>
-			<span class="employee-positions-cell">{{position.customer}}</span>
-			<span class="employee-positions-cell">{{position.project}}</span>
-			<span class="employee-positions-cell">{{position.city}}</span>
-			<span class="employee-positions-cell">{{position.startDate}}</span>
-			<span class="employee-positions-cell">{{position.status}}</span>
+		<div class="table-row" ng-show="hasPositions" ng-repeat="position in employeePositions">
+			<span class="table-cell-checkbox"><input type="checkbox"/></span>
+			<span class="table-cell"><a target="_blank" href="{{position.link}}">{{position.position}}</a></span>
+			<span class="table-cell">{{position.primarySkill}}</span>
+			<span class="table-cell">{{position.customer}}</span>
+			<span class="table-cell">{{position.project}}</span>
+			<span class="table-cell">{{position.city}}</span>
+			<span class="table-cell">{{position.startDate}}</span>
+			<span class="table-cell">{{position.status}}</span>
 		</div>
-		<div class="employee-positions-empty" ng-hide="hasPositions">No Positions Found</div>
-		<h4 class="employee-positions-title">Positions below are lower or higher level or excluded or have booked candidates</h4>
-		<div class="employee-positions-row-header">
-			<span class="employee-positions-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-			<span class="employee-positions-cell">Position</span>
-			<span class="employee-positions-cell">Primary Skill</span>
-			<span class="employee-positions-cell">Customer</span>
-			<span class="employee-positions-cell">Project</span>
-			<span class="employee-positions-cell">Location</span>
-			<span class="employee-positions-cell">Start Date</span>
-			<span class="employee-positions-cell">Position Status</span>
+		<div class="table-empty" ng-hide="hasPositions">No Positions Found</div>
+		<h4 class="table-title">Positions below are lower or higher level or excluded or have booked candidates</h4>
+		<div class="table-row-header">
+			<span class="table-cell-checkbox">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span class="table-cell">Position</span>
+			<span class="table-cell">Primary Skill</span>
+			<span class="table-cell">Customer</span>
+			<span class="table-cell">Project</span>
+			<span class="table-cell">Location</span>
+			<span class="table-cell">Start Date</span>
+			<span class="table-cell">Position Status</span>
 		</div>
-		<div class="employee-positions-row" ng-show="hasAdditionalPositions" ng-repeat="position in employeeAdditionalPositions">
-			<span class="employee-positions-cell-checkbox"><input type="checkbox"/></span>
-			<span class="employee-positions-cell"><a target="_blank" href="https://upsa.epam.com/workload/resplanPositionEdit.do?position.positionId={{position.positionId}}">{{position.position}}</a></span>
-			<span class="employee-positions-cell">{{position.primarySkill}}</span>
-			<span class="employee-positions-cell">{{position.customer}}</span>
-			<span class="employee-positions-cell">{{position.project}}</span>
-			<span class="employee-positions-cell">{{position.city}}</span>
-			<span class="employee-positions-cell">{{position.startDate}}</span>
-			<span class="employee-positions-cell">{{position.status}}</span>
+		<div class="table-row" ng-show="hasAdditionalPositions" ng-repeat="position in employeeAdditionalPositions">
+			<span class="table-cell-checkbox"><input type="checkbox"/></span>
+			<span class="table-cell"><a target="_blank" href="{{position.link}}">{{position.position}}</a></span>
+			<span class="table-cell">{{position.primarySkill}}</span>
+			<span class="table-cell">{{position.customer}}</span>
+			<span class="table-cell">{{position.project}}</span>
+			<span class="table-cell">{{position.city}}</span>
+			<span class="table-cell">{{position.startDate}}</span>
+			<span class="table-cell">{{position.status}}</span>
 		</div>
-		<div class="employee-positions-empty" ng-hide="hasAdditionalPositions">No Positions Found</div>
+		<div class="table-empty" ng-hide="hasAdditionalPositions">No Positions Found</div>
 	</div>
 </div>
 <!-- ========================================================= -->

@@ -1,0 +1,22 @@
+{
+	"status":"Open",
+	"accountManager":"John Smith",
+	"candidates":null,
+	"caseName":"",
+	"city":"Budapest",
+	"customer":"Expedia EU",
+	"location":"Hungary, Budapest",
+	"primarySkill":"Java",
+	"hiringManager":null,
+	"country":"Hungary",
+	"owner":"Norbert Vegh",
+	"project":"EXP-EMEA",
+	"resourceManager":"John Smith",
+	"startDate":"09/10/2014",
+	"primarySkills":"",
+	"position":"Developer",
+	"positionId":"4060741400008682631",
+	"jobFunction":"",
+	"link":"https://upsa.epam.com/workload/resplanPositionEdit.do?position.positionId=4060741400008682631",
+	"rating":200000
+}

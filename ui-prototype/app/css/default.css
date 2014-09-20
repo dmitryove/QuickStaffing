@@ -210,7 +210,8 @@ A {
 	.employee {
 	}
 	
-		.employee-name {
+		.employee-name,
+		.position-name {
 			border-bottom: 1px dotted #ccc;
 			color: #4F92BA;
 			font-size: 30px;
@@ -218,7 +219,8 @@ A {
 			padding: 0 0 10px 0;
 		}
 		
-		.employee-card {
+		.employee-card,
+		.position-card {
 			overflow: hidden;
 		}
 		
@@ -232,16 +234,20 @@ A {
 			margin: 20px 620px 20px 200px;
 		}
 		
-			.employee-info-row {
+		.position-info {
+			margin: 20px 50% 20px 0;
+		}
+		
+			.info-row {
 				border-bottom: 1px dotted #ccc;
 				padding: 10px;
 			}
 
-			.employee-info-row:last-child {
+			.info-row:last-child {
 				border: 0;
 			}
 
-				.employee-info-row-label {
+				.info-row-label {
 					display: inline-block;
 					width: 200px;
 				}
@@ -276,38 +282,38 @@ A {
 					width: 130px;
 				}
 		
-		.employee-positions-filter {
+		.info-filter {
 			background-color: #f5f5f5;
 			overflow: hidden;
 			padding: 20px;
 		}
 
-			.employee-positions-filter-part {
+			.info-filter-part {
 				border-right: 1px dotted #ccc;
 				float: left;
 				margin-right: 20px;
 				padding-right: 20px;
 			}
 
-				.employee-positions-filter-part-title {
+				.info-filter-part-title {
 					cursor: pointer;
 					line-height: 30px;
 					vertical-align: middle;
 					margin-right: 10px;
 				}
 				
-				.employee-positions-filter-part-input {
+				.info-filter-part-input {
 					border: 1px solid #ccc;
 					height: 30px;
 					padding: 7px;
 					vertical-align: middle;
 				}
 		
-		.employee-positions {
+		.table {
 			margin: 20px 0;
 		}
 
-			.employee-positions-title {
+			.table-title {
 				border-bottom: 1px dotted #ccc;
 				color: #4F92BA;
 				font-size: 20px;
@@ -316,35 +322,35 @@ A {
 				padding: 0 0 10px 0;
 			}
 			
-			.employee-positions-row-header {
+			.table-row-header {
 				border-bottom: 1px dotted #ccc;
 				padding: 10px;
 				margin-top: 20px;
 			}
 
-				.employee-positions-row-header .employee-positions-cell {
+				.table-row-header .table-cell {
 					font-weight: bold;
 				}
 
-			.employee-positions-row {
+			.table-row {
 				border-bottom: 1px dotted #ccc;
 				padding: 10px;
 			}
 			
-			.employee-positions-row:nth-child(odd) {
+			.table-row:nth-child(odd) {
 				background-color: #fff;
 			}
 			
-			.employee-positions-row:nth-child(even) {
+			.table-row:nth-child(even) {
 				background-color: #f5f5f5;
 			}
 			
-				.employee-positions-cell {
+				.table-cell {
 					display: inline-block;
 					width: 13%
 				}
 
-			.employee-positions-empty {
+			.table-empty {
 				height: 100px;
 				text-align: center;
 				line-height: 100px;
