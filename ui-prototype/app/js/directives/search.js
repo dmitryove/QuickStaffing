@@ -28,7 +28,11 @@ quickStaffingApp.directive ('searchWidget', ['employeeSearchService', '$location
 		}
 	}
 	
-	var onSwitcherClick = function (_event) {
+	var onSwitcherEmployeeClick = function (_event) {
+		//alert ('Coming soon...');
+		$location.path ('/employee-info/id/0');
+	}
+	var onSwitcherPositionClick = function (_event) {
 		//alert ('Coming soon...');
 		$location.path ('/position-info/id/0');
 	}
