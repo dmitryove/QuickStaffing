@@ -52,7 +52,8 @@ quickStaffingApp.directive ('searchWidget', ['employeeSearchService', '$location
 			inptKeyword.val('');
 		}
 		
-		_scope.onSwitcherClick = onSwitcherClick;
+		_scope.onSwitcherEmployeeClick = onSwitcherEmployeeClick;
+		_scope.onSwitcherPositionClick = onSwitcherPositionClick;
 	}
 
 	return {
