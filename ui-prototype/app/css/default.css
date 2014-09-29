@@ -23,7 +23,7 @@ BODY {
 	background: #fff;
 	height: 100%;
 	min-height: 100%;
-	min-width: 995px;
+	min-width: 1200px;
 }
 
 BUTTON {
@@ -241,6 +241,7 @@ A {
 			.info-row {
 				border-bottom: 1px dotted #ccc;
 				padding: 10px;
+				white-space: nowrap;
 			}
 
 			.info-row:last-child {
@@ -249,7 +250,13 @@ A {
 
 				.info-row-label {
 					display: inline-block;
-					width: 200px;
+					width: 170px;
+					white-space: nowrap;
+				}
+
+				.info-row-content {
+					display: inline-block;
+					white-space: nowrap;
 				}
 		
 		.employee-projects {
